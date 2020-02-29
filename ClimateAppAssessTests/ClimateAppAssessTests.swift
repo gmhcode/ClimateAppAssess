@@ -11,23 +11,62 @@ import XCTest
 
 class ClimateAppAssessTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var lists : [List] = []
+    
+    func createTestStructs() -> [List]{
+        let list1 = List(dt: 1582869600, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        let list2 = List(dt: 1582880400, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        let list3 = List(dt: 1582977600, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        let list4 = List(dt: 1583074800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        let list5 = List(dt: 1583182800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        let list6 = List(dt: 1583290800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        return [list1,list2,list3,list4,list5,list6]
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    ///Makes sure something is fetched
+    func testFetchWeather() {
+        WeatherController.shared.fetchWeather(long: 40.296142578125, lat: -111.67133965431297) { (weatherdata) in
+            XCTAssertTrue(weatherdata != nil)
+        }
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    ///Makes sure something is fetched
+    func testfetch5DayWeather(){
+        WeatherController.shared.fetch5DayWeather(long: 40.296142578125, lat: -111.67133965431297) { (forecast) in
+            XCTAssertTrue(forecast != nil)
+        }
     }
+    ///Makes sure the amount of days contained the dictionary keys are 5 and the amount of days in the tuple array are 5
+    func testSeperateDays() {
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let lists = createTestStructs()
+        let tuple = seperateDaysFrom(list: lists)
+        let testBool = tuple.0.keys.count >= 5 && tuple.1.count >= 5
+        XCTAssertTrue(testBool)
+    }
+    ///Tests to make sure the string returned from dateAsDayString contains a day of the week
+    func testDateAsDayString() {
+            
+        let lists = createTestStructs()
+        let tuple = seperateDaysFrom(list: lists)
+        let formatter = DateFormatter()
+        let array = Array(tuple.0.values)
+        let date = Date(timeIntervalSince1970:array[0][0].dt)
+        let daysArray = ["Monday","Tueday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+        let dateArray = dateAsDayString(formatter: formatter, date: date)?.components(separatedBy: ",")
+        
+        let testBool = daysArray.contains(where: {dateArray!.contains($0)})
+        XCTAssertTrue(testBool)
+    }
+    ///Needs to Extract the day of the week
+    func testExtractDayName(){
+       let testBool = extractDayName(string: "Tuesday, March 3, 2020") == "Tuesday"
+        
+       XCTAssertTrue(testBool)
+    }
+    //image needs to not be nil
+    func testFetchWeatherIcons() {
+        WeatherController.shared.fetchWeatherIcons(weather: createTestStructs()[0].weather[0]) { (image) in
+            let testBool = image != nil
+            XCTAssertTrue(testBool)
         }
     }
 

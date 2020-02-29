@@ -27,7 +27,7 @@ class WeatherController {
     // MARK: - FetchWeather
     func fetchWeather(long: CLLocationDegrees, lat: CLLocationDegrees, completion: @escaping(WeatherData?) -> Void) {
         let urlString = "\(currentWeatherURL)&lat=\(lat)&lon=\(long)"
-        print(urlString)
+//        print(urlString)
         if let url = URL(string: urlString) {
             
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -59,7 +59,7 @@ class WeatherController {
     ///fetches the 5 day weather forecast
     func fetch5DayWeather(long: CLLocationDegrees, lat: CLLocationDegrees, completion: @escaping(ForecastWeather?) -> Void) {
         let urlString = "\(forecastWeatherURL)&lat=\(lat)&lon=\(long)"
-        print(urlString)
+//        print(urlString)
         if let url = URL(string: urlString) {
             
             URLSession.shared.dataTask(with: url) { (data, response, error) in
