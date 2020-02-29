@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GX5-sZ-uOZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Todays Weather-->
+        <scene sceneID="Afq-Qh-7Bm">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="GX5-sZ-uOZ" customClass="ViewController" customModule="ClimateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ks0-rb-Be8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Tfc-H0-p66">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxj-cW-fZW">
+                                <rect key="frame" x="74" y="152" width="266" height="54"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbj-Mx-kkz">
+                                <rect key="frame" x="55" y="206" width="304" height="95"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2k-mz-Rf5">
+                                <rect key="frame" x="277" y="44" width="137" height="67"/>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="0.51146747079999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="See Five Day">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UCS-tv-fDW">
+                                <rect key="frame" x="143" y="301" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UCS-tv-fDW" secondAttribute="height" multiplier="1:1" id="hgZ-NC-3SE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UCS-tv-fDW" firstAttribute="centerX" secondItem="Tfc-H0-p66" secondAttribute="centerX" id="27i-cK-rnI"/>
+                            <constraint firstItem="UCS-tv-fDW" firstAttribute="top" secondItem="bbj-Mx-kkz" secondAttribute="bottom" id="3Uw-RE-tn6"/>
+                            <constraint firstItem="bbj-Mx-kkz" firstAttribute="width" secondItem="Tfc-H0-p66" secondAttribute="width" multiplier="0.7343" id="4yc-j6-AFP"/>
+                            <constraint firstItem="bbj-Mx-kkz" firstAttribute="centerX" secondItem="Ks0-rb-Be8" secondAttribute="centerX" id="7I5-ri-Mar"/>
+                            <constraint firstItem="Tfc-H0-p66" firstAttribute="leading" secondItem="Ks0-rb-Be8" secondAttribute="leading" id="9JY-wG-Qsv"/>
+                            <constraint firstItem="Wxj-cW-fZW" firstAttribute="centerY" secondItem="Ks0-rb-Be8" secondAttribute="centerY" multiplier="0.4" id="JaG-wL-vEL"/>
+                            <constraint firstItem="Wxj-cW-fZW" firstAttribute="height" secondItem="Ks0-rb-Be8" secondAttribute="height" multiplier="0.0602679" id="Jnd-nv-PT1"/>
+                            <constraint firstItem="L2k-mz-Rf5" firstAttribute="top" secondItem="pc4-3e-AhQ" secondAttribute="top" id="KTl-an-mWC"/>
+                            <constraint firstItem="pc4-3e-AhQ" firstAttribute="trailing" secondItem="L2k-mz-Rf5" secondAttribute="trailing" id="M0z-kR-b01"/>
+                            <constraint firstItem="Tfc-H0-p66" firstAttribute="top" secondItem="Ks0-rb-Be8" secondAttribute="top" id="MTC-Qr-h3m"/>
+                            <constraint firstItem="Tfc-H0-p66" firstAttribute="trailing" secondItem="Ks0-rb-Be8" secondAttribute="trailing" id="NFe-GZ-Kt1"/>
+                            <constraint firstItem="bbj-Mx-kkz" firstAttribute="height" secondItem="Tfc-H0-p66" secondAttribute="height" multiplier="0.106027" id="NFx-Nc-84h"/>
+                            <constraint firstItem="UCS-tv-fDW" firstAttribute="width" secondItem="Tfc-H0-p66" secondAttribute="width" multiplier="0.309179" id="OhZ-gL-FGV"/>
+                            <constraint firstItem="Wxj-cW-fZW" firstAttribute="width" secondItem="Ks0-rb-Be8" secondAttribute="width" multiplier="0.642512" id="bqS-c5-td1"/>
+                            <constraint firstAttribute="bottom" secondItem="Tfc-H0-p66" secondAttribute="bottom" id="dzm-L9-dKV"/>
+                            <constraint firstItem="bbj-Mx-kkz" firstAttribute="top" secondItem="Wxj-cW-fZW" secondAttribute="bottom" id="mRR-BL-PBW"/>
+                            <constraint firstItem="L2k-mz-Rf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pc4-3e-AhQ" secondAttribute="leading" symbolic="YES" id="nM8-OJ-kgR"/>
+                            <constraint firstItem="Wxj-cW-fZW" firstAttribute="centerX" secondItem="pc4-3e-AhQ" secondAttribute="centerX" id="qG0-xZ-plY"/>
+                            <constraint firstItem="L2k-mz-Rf5" firstAttribute="height" secondItem="Tfc-H0-p66" secondAttribute="height" multiplier="0.0747768" id="rrr-Ct-s5S"/>
+                            <constraint firstItem="L2k-mz-Rf5" firstAttribute="width" secondItem="Tfc-H0-p66" secondAttribute="width" multiplier="0.330918" id="tvP-5g-zJI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pc4-3e-AhQ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Todays Weather" largeTitleDisplayMode="always" id="7Pa-2T-2eX"/>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="Wxj-cW-fZW" id="sXC-q1-7bq"/>
+                        <outlet property="iconImage" destination="UCS-tv-fDW" id="YoC-cT-Fbo"/>
+                        <outlet property="seeFiveDayButton" destination="L2k-mz-Rf5" id="RPQ-V3-odW"/>
+                        <outlet property="tempLabel" destination="bbj-Mx-kkz" id="D28-Px-8i5"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnk-wo-weh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-110.14492753623189" y="62.946428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="662" height="662"/>
+    </resources>
 </document>
