@@ -24,6 +24,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         checkLocationServices()
         setViews()
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         // calling fetch weather here as well as in the didChangeAuthorization function because sometimes the didChangeAuthorization function doesnt get called when the app has been inactive for a while
         fetchAllWeather()
     }
