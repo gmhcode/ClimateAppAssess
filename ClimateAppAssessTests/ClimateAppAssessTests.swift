@@ -20,7 +20,8 @@ class ClimateAppAssessTests: XCTestCase {
         let list4 = List(dt: 1583074800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
         let list5 = List(dt: 1583182800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
         let list6 = List(dt: 1583290800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
-        return [list1,list2,list3,list4,list5,list6]
+        let list7 = List(dt: 1583290800, main: Main(temp: 22.89), weather: [Weather(description: "its weather", id: 1, icon: "10d")])
+        return [list1,list2,list3,list4,list5,list6,list7]
     }
     ///Makes sure something is fetched
     func testFetchWeather() {
