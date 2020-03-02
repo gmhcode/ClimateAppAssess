@@ -39,7 +39,15 @@ class ClimateAppAssessTests: XCTestCase {
 
         let lists = createTestStructs()
         let tuple = seperateDaysFrom(list: lists)
-        let testBool = tuple.0.keys.count >= 5 && tuple.1.count >= 5
+        
+        
+        let testBool = tuple.0.keys.count >= 5
+            && tuple.1.count >= 5
+            && tuple.0.keys.count <= 6
+            && tuple.1.count <= 6
+            //makes sure there are no duplicates
+            && tuple.1.count == Set(tuple.1).count
+        
         XCTAssertTrue(testBool)
     }
     ///Tests to make sure the string returned from dateAsDayString contains a day of the week
