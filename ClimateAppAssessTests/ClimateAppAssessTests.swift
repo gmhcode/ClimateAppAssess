@@ -34,7 +34,7 @@ class ClimateAppAssessTests: XCTestCase {
             XCTAssertTrue(forecast != nil)
         }
     }
-    ///Makes sure the amount of days contained the dictionary keys are 5 and the amount of days in the tuple array are 5
+    ///Makes sure the amount of days contained the dictionary and the array keys are greater than or equal to 5 and less than or equal to 6. It also checks for doubles
     func testSeperateDays() {
 
         let lists = createTestStructs()
